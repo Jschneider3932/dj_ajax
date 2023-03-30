@@ -30,7 +30,15 @@ const getCookie = (name)=> {
     }
     return cookieValue;
 }
-const csrftoken = getCookie('csrftoken');
+const csrftoken = getCookie('csrftoken')
+
+const deleted = localStorage.getItem('title')
+
+if(deleted){
+    handleAlerts('danger', `deleted "${deleted}"`)
+    localStorage.clear()
+}
+
 
 const likeUnlikePosts = () =>{
     const likeUnLikeForms = [...document.getElementsByClassName('like-unlike-forms')]
@@ -52,11 +60,12 @@ const likeUnlikePosts = () =>{
             },
             error: function(error){
                 console.log(error)
-            }
+            },
         })
 
     }))
 }
+
 
 let visible = 3
 
