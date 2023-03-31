@@ -113,7 +113,7 @@ const getData = () => {
             }
     
         },
-        error: function(response){
+        error: function(error){
             console.log(error)  
         }
     })
